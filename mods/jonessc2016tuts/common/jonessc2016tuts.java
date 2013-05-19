@@ -3,6 +3,7 @@ package mods.jonessc2016tuts.common;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
@@ -28,6 +29,7 @@ public class jonessc2016tuts {
 	public static commonProxy proxy;
 	
 	public static Block tutBlock;
+	public static Item tutItem;
 	
 	@PreInit
 	public void pre(FMLPreInitializationEvent event){
@@ -37,9 +39,11 @@ public class jonessc2016tuts {
 	@Init
 	public void load(FMLInitializationEvent event){
 		tutBlock=new BlocktutBlock(1000, Material.rock).setCreativeTab(CreativeTabs.tabBlock).setUnlocalizedName("Tut Block");
+		tutItem =new ItemtutItem(10000).setCreativeTab(CreativeTabs.tabBlock).setUnlocalizedName("Tut Item");
 		
 		GameRegistry.registerBlock(tutBlock, "Tut Block" + tutBlock.getUnlocalizedName2());
 		LanguageRegistry.addName(tutBlock, "Tut Block");
+		LanguageRegistry.addName(tutItem, "Tut Item");
 	}
 	
 	@PostInit
