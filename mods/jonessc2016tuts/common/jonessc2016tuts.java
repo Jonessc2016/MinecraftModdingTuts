@@ -4,6 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
@@ -44,10 +45,15 @@ public class jonessc2016tuts {
 		tutOre=new BlocktutOre(1001, Material.rock).setCreativeTab(CreativeTabs.tabBlock).setUnlocalizedName("Tut Ore");
 		
 		GameRegistry.registerBlock(tutBlock, "Tut Block" + tutBlock.getUnlocalizedName2());
+		GameRegistry.registerBlock(tutOre, "Tut Ore" + tutOre.getUnlocalizedName2());
 		LanguageRegistry.addName(tutBlock, "Tut Block");
 		LanguageRegistry.addName(tutItem, "Tut Item");
+		LanguageRegistry.addName(tutOre, "Tut Ore");
 		
 		GameRegistry.registerWorldGenerator(new WorldGenTut());
+		
+		GameRegistry.addSmelting(1001, (new ItemStack(tutItem, 1)), 100);
+		GameRegistry.addShapedRecipe(new ItemStack(tutBlock, 1), "***", "***", "***", '*', tutItem);
 	}
 	
 	@PostInit
