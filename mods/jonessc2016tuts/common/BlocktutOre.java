@@ -6,19 +6,20 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 
-public class BlocktutBlock extends Block{
+public class BlocktutOre extends Block{
 
-	public BlocktutBlock(int par1, Material par2Material) {
+	public BlocktutOre(int par1, Material par2Material) {
 		super(par1, par2Material);
 	}
 	
 	@Override
 	public void registerIcons(IconRegister reg){
-        this.blockIcon = reg.registerIcon("jonessc2016tuts:tutBlock");
+        this.blockIcon = reg.registerIcon("jonessc2016tuts:tutOre");
     }
 	
 	public int idDropped(int par1, Random rand, int par2) {
-        return jonessc2016tuts.tutItem.itemID;
+        return jonessc2016tuts.tutOre.blockID;
 	}
 	
+
 }

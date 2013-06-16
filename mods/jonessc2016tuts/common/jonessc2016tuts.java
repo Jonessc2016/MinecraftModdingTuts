@@ -30,6 +30,7 @@ public class jonessc2016tuts {
 	
 	public static Block tutBlock;
 	public static Item tutItem;
+	public static Block tutOre;
 	
 	@PreInit
 	public void pre(FMLPreInitializationEvent event){
@@ -40,10 +41,13 @@ public class jonessc2016tuts {
 	public void load(FMLInitializationEvent event){
 		tutBlock=new BlocktutBlock(1000, Material.rock).setCreativeTab(CreativeTabs.tabBlock).setUnlocalizedName("Tut Block");
 		tutItem =new ItemtutItem(10000).setCreativeTab(CreativeTabs.tabBlock).setUnlocalizedName("Tut Item");
+		tutOre=new BlocktutOre(1001, Material.rock).setCreativeTab(CreativeTabs.tabBlock).setUnlocalizedName("Tut Ore");
 		
 		GameRegistry.registerBlock(tutBlock, "Tut Block" + tutBlock.getUnlocalizedName2());
 		LanguageRegistry.addName(tutBlock, "Tut Block");
 		LanguageRegistry.addName(tutItem, "Tut Item");
+		
+		GameRegistry.registerWorldGenerator(new WorldGenTut());
 	}
 	
 	@PostInit
